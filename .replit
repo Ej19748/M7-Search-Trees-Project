@@ -16,3 +16,23 @@ deploymentTarget = "cloudrun"
 
 [agent]
 expertMode = true
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Course Schedule Trees"
+mode = "sequential"
+author = 36275886
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = 36275886
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Course Schedule Trees"
